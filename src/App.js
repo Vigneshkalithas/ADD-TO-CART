@@ -1,157 +1,10 @@
-// import './App.css';
-// import "./../node_modules/bootstrap/dist/css/bootstrap.min.css";
-// import  { useState } from 'react';
-// import { Home } from './Home';
-// import { Toggle } from './Cart';
-// import { CartProvider } from 'react-use-cart';
-
-
-
-// const CartDetails=[
-//   {
-//   id:1,
-//   image: "https://dummyimage.com/450x300/dee2e6/6c757d.jpg",
-//   name: "Fancy Product",
-//   rating: "",
-//   price: "$40.00 - $80.00",
-//   // isDisabled:false,
-//  },
-// { id:2,
-//   image: "https://dummyimage.com/450x300/dee2e6/6c757d.jpg",
-//   name: "Special Item",
-//   rating: "⭐⭐⭐⭐⭐",
-//   price: "$40.00 - $80.00",
-//   // isDisabled: false,
-// },
-// {
-//   id:3,
-//   image: "https://dummyimage.com/450x300/dee2e6/6c757d.jpg",
-//   name: "Sale Item",
-//   rating: "",
-//   price: "$50.00 $25.00",
-//   // isDisabled: false,
-// },
-// {
-//   id:4,
-//   image: "https://dummyimage.com/450x300/dee2e6/6c757d.jpg",
-//   name: "Popular Item",
-//   rating: "⭐⭐⭐⭐⭐",
-//   price: "$40.00",
-//   // isDisabled: false,
-// },
-// {
-//   id:5,
-//   image: "https://dummyimage.com/450x300/dee2e6/6c757d.jpg",
-//   name: "Fancy Product",
-//   rating: "",
-//   price: "$40.00 - $80.00",
-//   // isDisabled: false,
-// },
-// {
-//   id:6,
-//   image: "https://dummyimage.com/450x300/dee2e6/6c757d.jpg",
-//   name: "Sale Item",
-//   rating: "",
-//   price: "$50.00 $25.00",
-//   // isDisabled: false,
-// },
-// { id:7,
-//   image: "https://dummyimage.com/450x300/dee2e6/6c757d.jpg",
-//   name: "Special Item",
-//   rating: "⭐⭐⭐⭐⭐",
-//   price: "$40.00 - $80.00",
-//   // isDisabled: false,
-// },
-// {
-//   id:8,
-//   image: "https://dummyimage.com/450x300/dee2e6/6c757d.jpg",
-//   name: "Popular Item",
-//   rating: "⭐⭐⭐⭐⭐",
-//   price: "$40.00",
-//   // isDisabled: false,
-// },]
-
-
-
-
-
-
-
-
-
-// export default function App() {
-
-  // const carts = CartDetails;
-  
-//   return (
-//     <div className="App">
-//       {/* <AddCartButtton/>
-//         <div className="all-cards">s
-//         {carts.map((mv,index)=>
-//               <Cart key={index} data={mv}/>
-//             )}
-          
-//         </div> */}
-//         <CartProvider>
-//           <Toggle/>
-//               {/* <Cart/> */}
-//               <Home/>
-//        </CartProvider>
-
-//     </div>
-//   );
-// }
-
-
-
-
-// function Cart({data}){
-  
-//   const [addCarto , setaddCarto] = useState(0);  
-
-//   return(
-//     <div className="cart">
-//     <img className="cart-poster" src={data.image} alt={data.name}></img>
-//       <h4 className="cart-title">{data.name}</h4>
-//       <p className="cart-rating">{data.rating}</p>
-//       <p className="cart-price">{data.price}</p>
-//       <button className="cart-button" onClick={(()=>setaddCarto(addCarto + 1))}>Add to cart</button>
-
-//     </div>
-//   )
-// }
-
-// function AddCartButtton(  ){
-
-//   // const[addCarto , setaddCarto] = useState(0);
-
-//   return(
-//     <div className="cartButton-head">
-//       <button className="cartButton" onClick={()=>{
-//         <div>
-//           <Cart/>
-//         </div>
-//       }}>
-//       <i class="bi-cart-fill me-1"></i>Cart <span className='button-span'></span></button>
-
-//       {/* onClick={(()=>setaddCarto(addCarto + 1))} */}
-
-//     </div>
-//   )
-// }
-
-
-// ilavenil code
-
-
-
 import "./App.css";
 import { useState } from "react";
 
 
 function App() {
   const [cart,setCart]=useState([])
-  const [productlist,setProductlist]=useState(
+  const [data,setdata]=useState(
     [
       {
               id:1,
@@ -217,26 +70,28 @@ function App() {
             },
     ]
     )
-  //const [isDisabled, setIsDisabled] = useState(false);
+
+
   let addtocard=(element,id)=>{
-    let temp=productlist
+    let temp=data
     temp[id].isDisabled=true
   setCart([...cart,element])
-  setProductlist(temp)
+  setdata(temp)
   
   }
+
   const removefromCart = (element)=>{
   
-    //setcartlist ([...cartlist.slice(index + 1)]);
     setCart(cart.filter((e)=> e!==element));
-    console.log(cart)
-   //let index= cart.findIndex((object)=>object.id===element.id);
-   let index= element.id-1
-   let temp=productlist
-   temp[index].isDisabled=false
-  setProductlist(temp)
-   
-  }
+    // console.log(cart)
+  
+      let index= element.id-1
+      let temp=data
+      temp[index].isDisabled=false
+      setdata(temp)
+    }
+
+
   return (
     <div className="App">
     <div className="container">
@@ -271,20 +126,6 @@ function App() {
               </div>
               <div className="modal-body">
 
-
-
-               {/* <ul className="list-group">
-               {cart.map((element, index)=>
-                <li className="list-group-item " key={index}>
-                 <span className="data"><img src={element.image} style={{height:'5rem',marginRight:'8px'}}/></span><span className="data">{element.name}</span>
-                 <span className="data">{element.price}</span>
-                   <button type="button" className="close" onClick={()=>removefromCart(element)}> <span aria-hidden="true">&times;</span>
-                  </button>
-                 </li> )}
-                </ul> */}
-
-
-
                 <table className="tabel  table-hover m0">
                          <tbody>
                                   {cart.map((element,index)=>{
@@ -294,25 +135,20 @@ function App() {
                                         <td><img src={element.image} style={{height:'5rem',marginRight:'8px'}}/></td>
                                         <td>{element.name}</td>
                                         <td>{element.price}</td>
-                                        {/* <td>Quantity ({item.quantity})</td> */}
-                                        <td><button className="btn btn-warning ms-2" onClick={()=>removefromCart(element)}><img src="https://img.icons8.com/ios-glyphs/24/000000/filled-trash.png"/></button>
+                                        <td><button className="btn btn-warning ms-2" onClick={()=>removefromCart(element)}><img src="https://img.icons8.com/color-glass/20/000000/filled-trash.png"/></button>
                                         </td>
                                     </tr>)
                                 })}
                         </tbody>
                     </table>
-
-
-
-
-
               </div>
             </div>
           </div>
         </div>
       </div>
+
       <div className="row">
-        {productlist.map((element, index) => (
+        {data.map((element, index) => (
           <div className="col-lg-3 col-md-4  cardcol" key={index}>
             <div className="card h-100">
               <img src={element.image} className="card-img-top" alt="..." />
@@ -327,6 +163,7 @@ function App() {
             </div>
           </div>
         ))}
+
       </div>
     </div>
     </div>
