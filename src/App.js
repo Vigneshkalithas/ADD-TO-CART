@@ -135,7 +135,7 @@ function App() {
                                         <td><img src={element.image} style={{height:'5rem',marginRight:'8px'}}/></td>
                                         <td>{element.name}</td>
                                         <td>{element.price}</td>
-                                        <td><button className="btn btn-warning ms-2" onClick={()=>removefromCart(element)}><img src="https://img.icons8.com/color-glass/20/000000/filled-trash.png"/></button>
+                                        <td><button className="btn btn-warning ms-2" onClick={()=>removefromCart(element)}><img src="https://img.icons8.com/material-sharp/15/000000/filled-trash.png"/></button>
                                         </td>
                                     </tr>)
                                 })}
