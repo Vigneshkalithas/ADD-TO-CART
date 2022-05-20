@@ -1,38 +1,185 @@
-.App {
-  text-align: center;
+/* .App{
+  background-color:whitesmoke;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.all-cards{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  flex-wrap: wrap;
+  justify-content:space-around;
+  gap:16px;
+  margin-left: 60px;
+  margin-right: 60px;
+}
+.cart{
+
+  width:220px;
+  text-align: center;
+  border-radius: 6px;
+  margin-top: 15px;
+  margin-bottom: 25px;
+  background-color: white;
+  overflow: hidden;
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+
+}
+.cart-poster{
+  width: 220px;
+  margin-bottom: 5px;
+  object-fit: cover;
+  
+}
+.cart-button{
+  font-size: 1rem;
+  margin: 10px;
+  width:110px;
+  height: 35px;
+  border:0.5px solid black;
+  border-radius: 4px;
+
+}
+.cart-button:hover{
+  background-color: black;
   color: white;
 }
+.cartButton{
+  width: 150px;
+  height: 40px;
+  margin:30px;
+  font-size: 18px;
+  border:0.5px solid black;
+  border-radius: 4px;
+}
+.cartButton-head{
+  display: flex;
 
-.App-link {
-  color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.cartButton:hover{
+  background-color: black;
+  color: white;
+}
+.button-span{
+  background-color: black;
+  color: white;
+  font-size: 1.1rem;
+ 
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 50%;
+}
+
+ .row-button{
+  
+  background-color: aqua;
+}
+
+.cart-preview {
+  display: none;
+  background: #fff;
+  border: 1px solid #ccc;
+}
+
+
+.cart-preview.active{
+  z-index: 2;
+  display: block;
+  position: absolute;
+  top: 48px;
+  right: 0;
+  width: 360px;
+  height: 388px;
+  box-shadow: 0 10px 20px rgb(0 0 0 / 19%), 0 6px 6px rgb(0 0 0 / 23%);
+}
+
+.cart-preview:after, .cart-preview:before{
+  content: "";
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  z-index: 1;
+
+}
+.cart-preview:before {
+  top: -9px;
+  right: 8px;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #ccc;
+}
+.table{
+  
+  background-color: aquamarine;
+} */
+
+
+
+
+/* ilavenil code  */
+
+
+
+
+
+.App {
+  text-align: center;
+  background-color: whitesmoke;
+}
+
+.carddisplayrow{
+  padding: 20px;
+}
+.cardcol{
+  padding: 20px;
+  
+}
+li.list-group-item {
+  padding: 20px;
+  margin: 10px;
+}
+.modal-body {
+  background-color: #f8f9fa;
+}
+span.data {
+  padding: 20px;
+}
+
+.cart-button:hover{
+  background-color: black;
+  color: white;
+}
+.cart-button{
+  font-size: 1rem;
+  border:0.5px solid black;
+  border-radius: 4px;
+
+}
+.card{
+  border-radius: 5px;
+  background-color: white;
+  overflow: hidden;
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+
+table {
+  border-collapse: collapse;
+}
+th, td {
+  width:150px;
+  text-align:center;
+  padding:5px
+}
+
+.nav-row{
+  display: flex;
+  justify-content:flex-end;
+}
+
+@media only screen and (max-width: 700px) {
+  .nav-row{
+    display: flex;
+    justify-content:center;
   }
-  to {
-    transform: rotate(360deg);
-  }
+}
+.icon-button{
+  margin-bottom:4px ;
 }
