@@ -72,20 +72,19 @@ function App() {
     )
 
 
-  let addtocard=(element,id)=>{
+  const addToCart=(item,id)=>{
     let temp=data
     temp[id].isDisabled=true
-  setCart([...cart,element])
+  setCart([...cart,item])
   setdata(temp)
   
   }
 
-  const removefromCart = (element)=>{
+  const removeCart = (item)=>{
   
-    setCart(cart.filter((e)=> e!==element));
-    // console.log(cart)
+    setCart(cart.filter((x)=> x!==item));
   
-      let index= element.id-1
+      let index= item.id-1
       let temp=data
       temp[index].isDisabled=false
       setdata(temp)
@@ -128,14 +127,14 @@ function App() {
 
                 <table className="tabel  table-hover m0">
                          <tbody>
-                                  {cart.map((element,index)=>{
+                                  {cart.map((item,index)=>{
                                     return(
                                     <tr key={index}>
                                         <td>{index+1}</td>
-                                        <td><img src={element.image} style={{height:'5rem',marginRight:'8px'}}/></td>
-                                        <td>{element.name}</td>
-                                        <td>{element.price}</td>
-                                        <td><button className="btn btn-warning ms-2" onClick={()=>removefromCart(element)}><img src="https://img.icons8.com/material-sharp/15/000000/filled-trash.png"/></button>
+                                        <td><img src={item.image} style={{height:'5rem',marginRight:'8px'}}/></td>
+                                        <td>{item.name}</td>
+                                        <td>{item.price}</td>
+                                        <td><button className="btn btn-warning ms-2" onClick={()=>removeCart(item)}><img src="https://img.icons8.com/material-sharp/15/000000/filled-trash.png"/></button>
                                         </td>
                                     </tr>)
                                 })}
@@ -148,15 +147,15 @@ function App() {
       </div>
 
       <div className="row">
-        {data.map((element, index) => (
-          <div className="col-lg-3 col-md-4  cardcol" key={index}>
+        {data.map((item, index) => (
+          <div className="col-lg-3 col-md-4 card-space" key={index}>
             <div className="card h-100">
-              <img src={element.image} className="card-img-top" alt="..." />
+              <img src={item.image} className="card-img-top" alt="..." />
               <div className="card-body">
-                <h5 className="card-title">{element.name}</h5>
-                <p className="card-text"> {element.rating}</p>
-                <p className="card-text"> {element.price}</p>
-                <button disabled={element.isDisabled} className="btn btn-outline-dark " onClick={()=>addtocard(element,index)}>
+                <h5 className="card-title">{item.name}</h5>
+                <p className="card-text"> {item.rating}</p>
+                <p className="card-text"> {item.price}</p>
+                <button disabled={item.isDisabled} className="btn btn-outline-dark " onClick={()=> addToCart(item,index)}>
                  <span>Add to cart</span> <img className="icon-button"src="https://img.icons8.com/fluency/20/000000/add-shopping-cart.png"/>
                 </button>
               </div>
